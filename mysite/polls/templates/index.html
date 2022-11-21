@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <title>Medical Price Predictor</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <form action="/" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name">Enter Patient Name</label>
+          <input type="text" class="form-control" id="name" name="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="age">Enter Age</label>
+          <input type="text" class="form-control" id="age" name="age" />
+        </div>
+
+        <div class="form-group">
+          <label for="sex">Enter Sex (1 for male 0 for female)</label>
+          <input type="text" class="form-control" id="sex" name="sex" />
+        </div>
+
+        <div class="form-group">
+          <label for="bmi">Enter BMI</label>
+          <input type="text" class="form-control" id="bmi" name="bmi" />
+        </div>
+
+        <div class="form-group">
+          <label for="children">Enter The Number Of Children</label>
+          <input
+            type="text"
+            class="form-control"
+            id="children"
+            name="children"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="smoker">If Patient Is Smoker Enter 1 Else 0</label>
+          <input type="text" class="form-control" id="smoker" name="smoker" />
+        </div>
+
+        <div class="form-group">
+          <label for="region"
+            >Enter Patient Region in the range 1 to 4 (West To East)</label
+          >
+          <input type="text" class="form-control" id="region" name="region" />
+        </div>
+        <button type="submit" name="pred_button" class="btn btn-primary">
+          Submit
+        </button>
+        <i class="fa fa-search"></i>
+      </form>
+      {% if response %}
+      <h2 class="my-4 text-center">The Cost will be:{{response}}</h2>
+      {% endif %}
+    </div>
+  </body>
+</html>
